@@ -1,0 +1,42 @@
+<!-- Document objrct model -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .hidden-content{
+            display: none;
+        }
+        .hidden-content.reveal-btn{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 id="main-heading">
+            Event Listeners
+        </h1>
+        <div class="box box-1">
+            <h1 id="heading-1">Exemple 1</h1>
+            <button onclick="alert('I love js')">Enter</button>
+        </div>
+        <div class="box box-2">
+            <h1 id="heading-2">Exemple 2</h1>
+            <button class="btn-2">Enter</button>
+        </div>
+        <div class="box box-3">
+            <h1 id="heading-3">Exemple 3</h1>
+            <button>Enter</button>
+        </div>
+    </div>
+    <hr>
+        <button class="reveal-btn boxes">Reveal more</button>
+        <div class="hidden-content boxes">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Atque numquam veniam debitis vitae repellat quam ut sequi mollitia accusamus quia, accusantium, voluptates obcaecati aliquam voluptatem minima? Fugiat error reprehenderit sequi.    
+        </div>
+   
+    <script src="index.js"></script>
+</body>
+</html>
