@@ -34,6 +34,7 @@ let funkcija = (nizObjekata)=>{
             input.id ="ponudjeniOdgorvor" + ponudjenOdgovor;
             input.value =nizObjekata[i].ponudjeniOdgovori[j].replace(/\s/g, "");
             input.classList.add("form-check-input");
+            input.required = true;
 
             radioDiv.append(input);
             radioDiv.append(label);
@@ -59,7 +60,7 @@ let pitanja = [
     ["Glavni grad Slovacke?",["Bukurest","Kijev","Moskva","Bratislava","Beograd"],3],
     ["Koje godine se odigrala Maricka bitka?",["1366","1299","1371","1389","1401"],2],
     ["Koja reka protice nadomak Bele Crkve i kod Stare Palanke se uliva u Dunav?",["Nera","Karas","Begej","Beusnica","Kolubara"],0],
-    ["Koji moreuy raydvaja Liverpul od Dablina?",["Dablinski","Irski","Skocki","Severno Irski","Liverpuski "],2],
+    ["Koji moreuy raydvaja Liverpul od Dablina?",["Dablinski","Irski","Skocki","Severno Irski","Liverpuski "],1],
     ["Skog ostrva u Mediteranu je Oliveer Dragojevic?",["Korcula","Hvar","Brac","Krk","Lastovo"],0],
     ["U kom gradu se odigrava Australijan Open?",["Kambera","Sidnej","Melburn","Tokio","Johaneyburg"],2]
 ];
@@ -78,7 +79,42 @@ for ( let i = 0; i < pitanja.length;i++){
 funkcija(pitanjaZaKvizNiz);
 
 let btnSubmit = document.getElementById("submitFormKviz");
-console.log(btnSubmit);
+// console.log(btnSubmit);
+
+btnSubmit.addEventListener("click",(e)=>{
+    e.preventDefault();
+    let forma = document.getElementById("kvizForma");
+    console.log(forma);
+    let inputi = document.getElementsByTagName("input");
+    let odgovori = [];
+    for ( let i = 0; i < inputi.length; i++){
+        if ( inputi[i].checked == true ){
+            odgovori.push(inputi[i]);
+
+        }
+        
+    }
+
+    for ( let i = 0; i < odgovori.length; i++){
+        if ( odgovori[i].value == pitanjaZaKvizNiz[i].ponudjeniOdgovori[pitanjaZaKvizNiz[i].indexTacnogOdgovora]){
+            console.log("true");
+        }else{
+            console.log("false");
+        }
+        // console.log(pitanjaZaKvizNiz[i].ponudjeniOdgovori[pitanjaZaKvizNiz[i].indexTacnogOdgovora]);
+        // console.log(odgovori[i].value);
+    }
+
+
+
+})
+
+
+
+
+
+
+
 // console.log(pitanjaZaKvizNiz);
 // console.log(pitanjaZaKvizNiz[0]);
 // let pitanje1 = pitanjaZaKvizNiz[0];
